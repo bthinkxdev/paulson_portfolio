@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tata Capital Loan Solutions | Paulson K.F">
+    <meta property="og:description" content="Trusted Tata Capital loans with personal assistance from Paulson K.F.">
+    <meta property="og:image" content="image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tata Capital Loan Solutions | Paulson K.F">
+    <meta name="twitter:description" content="Trusted Tata Capital loans with personal assistance from Paulson K.F.">
+    <meta name="twitter:image" content="image.png">
+    <title>Tata Capital Loans | Paulson K.F</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #f1f5f9;
+            --primary: #164362;
+            --accent: #ffffff;
+            --card-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --cta: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-dark);
+            padding-bottom: 90px;
+        }
+
+        .top-nav {
+            width: 100%;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .lang-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 36px 20px 46px;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+        }
+
+        .hero h1 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .main {
+            max-width: 720px;
+            margin: -20px auto 0;
+            padding: 0 14px 24px;
+        }
+
+        .card {
+            background: var(--card-white);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .card h2 {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .pill {
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .product-card {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 12px;
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+        }
+
+        .product-card h3 {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .mini-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 6px;
+        }
+
+        .bullet {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-left: 10px;
+        }
+
+        .cta {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            background: var(--cta);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.2);
+            font-size: 13px;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* Dock */
+        .dock {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            height: 70px;
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 2000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dock-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .dock-item.active {
+            color: var(--accent);
+        }
+
+        .dock-item svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        @media (min-width: 640px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-nav">
+        <div class="nav-brand">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <rect width="36" height="36" rx="10" fill="var(--primary)" />
+                <path d="M18 9L11 25H15L16.5 21H19.5L21 25H25L18 9ZM17.2 18L18 15.5L18.8 18H17.2Z" fill="white" />
+            </svg>
+            <div class="brand-info">
+                <span class="brand-name">Paulson K.F</span>
+                <span class="brand-sub" data-en="Authorized Tata Capital Loan Facilitator"
+                    data-ml="ടാറ്റാ ക്യാപിറ്റൽ ലോൺ ഫെസിലിറ്റേറ്റർ">Authorized Tata Capital Loan Facilitator</span>
+            </div>
+        </div>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">മലയാളം</button>
+    </header>
+
+    <section class="hero">
+        <h1 data-en="Tata Capital Loan Solutions" data-ml="ടാറ്റാ ക്യാപിറ്റൽ ലോൺ സേവനങ്ങൾ">Tata Capital Loan Solutions</h1>
+        <p data-en="Trusted financial solutions backed by Tata Capital"
+            data-ml="ടാറ്റാ ക്യാപിറ്റലിന്റെ വിശ്വാസത്തോടെ സാമ്പത്തിക പരിഹാരങ്ങൾ">Trusted financial solutions backed by Tata Capital</p>
+        <div class="badge-row">
+            <div class="trust-badge" data-en="Tata Capital • Count on us" data-ml="ടാറ്റാ ക്യാപിറ്റൽ • വിശ്വാസം">Tata Capital • Count on us</div>
+            <div class="trust-badge" data-en="Since 2002 • Paulson K.F" data-ml="2002 മുതൽ • പോൾസൺ കെ.എഫ്">Since 2002 • Paulson K.F</div>
+            <div class="trust-badge" data-en="Personal assistance & documentation support" data-ml="വ്യക്തിഗത സഹായവും രേഖാ പിന്തുണയും">Personal assistance & documentation support</div>
+        </div>
+        <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I would like to know my eligibility for Tata Capital loans.">
+            <span>📱</span><span data-en="Check Loan Eligibility" data-ml="ലോൺ യോഗ്യത പരിശോധിക്കുക">Check Loan Eligibility</span>
+        </a>
+    </section>
+
+    <main class="main">
+
+        <div class="card">
+            <h2 data-en="Why Tata Capital" data-ml="എന്തുകൊണ്ട് ടാറ്റാ ക്യാപിറ്റൽ">Why Tata Capital</h2>
+            <div class="pill-row">
+                <span class="pill" data-en="Part of the Tata Group" data-ml="ടാറ്റാ ഗ്രൂപ്പിന്റെ ഭാഗം">Part of the Tata Group</span>
+                <span class="pill" data-en="Transparent processes" data-ml="വ്യക്തമായ നിബന്ധനകൾ">Transparent processes</span>
+                <span class="pill" data-en="Digital & fast approvals" data-ml="വേഗത്തിലുള്ള അംഗീകാരങ്ങൾ">Digital & fast approvals</span>
+                <span class="pill" data-en="Wide range of products" data-ml="പലതരം ലോൺ ഓപ്ഷനുകൾ">Wide range of products</span>
+                <span class="pill" data-en="Trusted across India" data-ml="ഇന്ത്യയിലുടനീളം വിശ്വാസം">Trusted across India</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 data-en="Loan Products" data-ml="ലോൺ ഉൽപ്പന്നങ്ങൾ">Loan Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3 data-en="Personal Loan" data-ml="പേഴ്സണൽ ലോൺ">Personal Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Salaried / self-employed, emergency or planned expenses" data-ml="ശമ്പളജീവികളും സ്വയംതൊഴിലാളികളും, അടിയന്തര/പദ്ധതിപരമായ ചെലവുകൾ">Salaried / self-employed, emergency or planned expenses</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Attractive rates, minimal documentation, quick approval, no collateral" data-ml="ആകർഷക നിരക്കുകൾ, കുറവ് രേഖകൾ, വേഗത്തിലുള്ള അംഗീകാരം, സെക്യൂരിറ്റി ആവശ്യമില്ല">Attractive rates, minimal documentation, quick approval, no collateral</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I am interested in a Tata Capital Personal Loan. Please guide me.">💬 <span data-en="WhatsApp: Personal Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: പേഴ്സണൽ ലോൺ">WhatsApp: Personal Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Home Loan" data-ml="ഹോം ലോൺ">Home Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="New home, plot + construction, renovation / extension" data-ml="പുതിയ വീട്, പ്ലോട്ട് + നിർമ്മാണം, നവീകരണം/വിപുലീകരണം">New home, plot + construction, renovation / extension</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Competitive ROI, flat login fee (scheme-based), long tenure, transparent process" data-ml="മത്സരക്ഷമ ROI, നിശ്ചിത ലോഗിൻ ഫീസ് (സ്കീമിനെ ആശ്രയിച്ച്), ദീർഘകാല കാലാവധി, വ്യക്തതയുള്ള പ്രക്രിയ">Competitive ROI, flat login fee (scheme-based), long tenure, transparent process</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I would like details about Tata Capital Home Loan.">💬 <span data-en="WhatsApp: Home Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: ഹോം ലോൺ">WhatsApp: Home Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Education Loan" data-ml="എജുക്കേഷൻ ലോൺ">Education Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Students (India & Abroad), parents planning higher studies" data-ml="വിദ്യാർത്ഥികൾ (ഇന്ത്യ/വിദേശം), ഉയർന്ന പഠനത്തിന് മാതാപിതാക്കൾ">Students (India & Abroad), parents planning higher studies</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="High eligibility, secured/unsecured options, flexible repayment after course, covers tuition + living" data-ml="ഉയർന്ന യോഗ്യത, സെക്യൂർഡ്/അൺസെക്യൂർഡ്, കോഴ്‌സിനുശേഷം ഫ്ലെക്സിബിൾ തിരിച്ചടവ്, ട്യൂഷൻ + താമസം ഉൾപ്പെടെ">High eligibility, secured/unsecured options, flexible repayment after course, covers tuition + living</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I want to enquire about Tata Capital Education Loan.">💬 <span data-en="WhatsApp: Education Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: എജുക്കേഷൻ ലോൺ">WhatsApp: Education Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Loan Against Property (LAP)" data-ml="പ്രോപ്പർട്ടി ലോൺ">Loan Against Property (LAP)</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Business owners, property owners needing large funds" data-ml="ബിസിനസ്/സ്വത്ത് ഉടമകൾക്ക് വലിയ തുക">Business owners, property owners needing large funds</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Against residential/commercial property, higher eligibility, lower ROI vs personal loan, long tenure" data-ml="റെസിഡൻഷ്യൽ/കോമേഴ്സ്യൽ സ്വത്ത്, ഉയർന്ന യോഗ്യത, പേഴ്സണൽ ലോൺ അപേക്ഷിച്ച് കുറവ് ROI, ദീർഘകാല കാലാവധി">Against residential/commercial property, higher eligibility, lower ROI vs personal loan, long tenure</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I want to know about Loan Against Property from Tata Capital.">💬 <span data-en="WhatsApp: LAP" data-ml="വാട്ട്‌സ്ആപ്പ്: പ്രോപ്പർട്ടി ലോൺ">WhatsApp: LAP</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Loan Against Securities" data-ml="സെക്യൂരിറ്റീസ് ലോൺ">Loan Against Securities</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Investors needing liquidity without selling holdings" data-ml="നിക്ഷേപങ്ങൾ വിറ്റൊഴിയാതെ ലിക്വിഡിറ്റി വേണ്ടവർ">Investors needing liquidity without selling holdings</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Instant digital onboarding, keep investments, flexible repayment, no prepayment charges (scheme-based)" data-ml="ഇൻസ്റ്റന്റ് ഡിജിറ്റൽ ഓൺബോർഡിംഗ്, നിക്ഷേപങ്ങൾ നിലനിർത്തൽ, ഫ്ലെക്സിബിൾ തിരിച്ചടവ്, പ്രീപേയ്മെന്റ് ചാർജില്ല (സ്കീം അനുസരിച്ച്)">Instant digital onboarding, keep investments, flexible repayment, no prepayment charges (scheme-based)</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, please guide me on Tata Capital Loan Against Securities.">💬 <span data-en="WhatsApp: LAS" data-ml="വാട്ട്‌സ്ആപ്പ്: സെക്യൂരിറ്റീസ് ലോൺ">WhatsApp: LAS</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Used Car Loan" data-ml="ഉപയോഗിച്ച കാർ ലോൺ">Used Car Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Used car buyers with good bank profile" data-ml="ഉപയോഗിച്ച കാർ വാങ്ങുന്നവർ, നല്ല ബാങ്ക് പ്രൊഫൈൽ">Used car buyers with good bank profile</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Decision in minutes, up to ₹18L*, LTV up to 85%*, no income proof/bank stmt in select cases, tenure up to 60m"
+                        data-ml="നിമിഷങ്ങൾക്കകം തീരുമാനം, ₹18 ലക്ഷം വരെ*, LTV 85% വരെ*, ചില കേസുകളിൽ ഇൻകം പ്രൂഫ്/ബാങ്ക് സ്റ്റേറ്റ്‌മെന്റ് ആവശ്യമില്ല, 60 മാസം വരെ കാലാവധി">Decision in minutes, up to ₹18L*, LTV up to 85%*, no income proof/bank stmt in select cases, tenure up to 60m</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I am interested in Tata Capital Used Car Loan. Please check eligibility.">💬 <span data-en="WhatsApp: Used Car Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: ഉപയോഗിച്ച കാർ ലോൺ">WhatsApp: Used Car Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Two Wheeler Loan" data-ml="ടൂ വീലർ ലോൺ">Two Wheeler Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Bike / scooter buyers, first-time buyers" data-ml="ബൈക്ക്/സ്കൂട്ടർ വാങ്ങുന്നവർ, ആദ്യമായി വാങ്ങുന്നവർ">Bike / scooter buyers, first-time buyers</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Simple documentation, quick approval, affordable EMIs" data-ml="ലളിതമായ രേഖകൾ, വേഗത്തിലുള്ള അംഗീകാരം, மல്യമായ EMI">Simple documentation, quick approval, affordable EMIs</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I want to apply for Tata Capital Two Wheeler Loan.">💬 <span data-en="WhatsApp: Two Wheeler Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: ടൂ വീലർ ലോൺ">WhatsApp: Two Wheeler Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Business Loan" data-ml="ബിസിനസ് ലോൺ">Business Loan</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="SMEs, traders, shop owners, professionals" data-ml="എസ്എംഇ, വ്യാപാരികൾ, ഷോപ്പ് ഉടമകൾ, പ്രൊഫഷണലുകൾ">SMEs, traders, shop owners, professionals</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Working capital, expansion, flexible tenure, minimal paperwork" data-ml="വർക്ക് കാപ്പിറ്റൽ, വിപുലീകരണം, ഫ്ലെക്സിബിൾ കാലാവധി, കുറവ് രേഖകൾ">Working capital, expansion, flexible tenure, minimal paperwork</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I want to know about Tata Capital Business Loan.">💬 <span data-en="WhatsApp: Business Loan" data-ml="വാട്ട്‌സ്ആപ്പ്: ബിസിനസ് ലോൺ">WhatsApp: Business Loan</span></a>
+                </div>
+                <div class="product-card">
+                    <h3 data-en="Tata Credit Cards" data-ml="ടാറ്റാ ക്രെഡിറ്റ് കാർഡുകൾ">Tata Credit Cards</h3>
+                    <div class="mini-title" data-en="Who is it for" data-ml="ആർക്കാണ്">Who is it for</div>
+                    <div class="bullet" data-en="Consumers seeking Tata co-branded credit cards" data-ml="ടാറ്റാ കോ-ബ്രാൻഡഡ് ക്രെഡിറ്റ് കാർഡുകൾ ആവശ്യമുള്ളവർ">Consumers seeking Tata co-branded credit cards</div>
+                    <div class="mini-title" data-en="Key Highlights" data-ml="പ്രധാന വിഷയങ്ങൾ">Key Highlights</div>
+                    <div class="bullet" data-en="Rewards-led cards, easy onboarding, Tata ecosystem benefits" data-ml="റിവാർഡ്സ് കാർഡുകൾ, എളുപ്പമായ ഓൺബോർഡിംഗ്, ടാറ്റാ ഇക്കോസിസ്റ്റം ആനുകൂല്യങ്ങൾ">Rewards-led cards, easy onboarding, Tata ecosystem benefits</div>
+                    <a class="cta" href="https://wa.me/919744802450?text=Hello Paulson Sir, I want to know about Tata Credit Cards.">💬 <span data-en="WhatsApp: Credit Cards" data-ml="വാട്ട്‌സ്ആപ്പ്: ക്രെഡിറ്റ് കാർഡുകൾ">WhatsApp: Credit Cards</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 data-en="Why Apply Through Paulson K.F." data-ml="എന്തുകൊണ്ട് പോൾസൺ കെ.എഫ് വഴി">Why Apply Through Paulson K.F.</h2>
+            <div class="pill-row">
+                <span class="pill" data-en="Personal eligibility checking" data-ml="വ്യക്തിഗത യോഗ്യത പരിശോധന">Personal eligibility checking</span>
+                <span class="pill" data-en="Documentation guidance" data-ml="രേഖാ മാർഗനിർദ്ദേശം">Documentation guidance</span>
+                <span class="pill" data-en="Follow-up with Tata Capital" data-ml="ടാറ്റാ ക്യാപിറ്റലുമായി ഫോളോ-അപ്പ്">Follow-up with Tata Capital</span>
+                <span class="pill" data-en="One-to-one support" data-ml="വ്യക്തിഗത പിന്തുണ">One-to-one support</span>
+                <span class="pill" data-en="No need to run to the bank – I’ll help" data-ml="ബാങ്കിലേക്ക് ഓടേണ്ടതില്ല – ഞാൻ സഹായിക്കും">No need to run to the bank – I’ll help</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 data-en="Compliance & Disclaimer" data-ml="കംപ്ലയൻസ് & ഡിസ്ക്ലെയിമർ">Compliance & Disclaimer</h2>
+            <p class="footer-note" data-en="Loan approval, interest rates, and eligibility are subject to Tata Capital’s policies and discretion. Terms & conditions apply."
+                data-ml="ലോൺ അംഗീകാരം, പലിശ നിരക്ക്, യോഗ്യത എന്നിവ ടാറ്റാ ക്യാപിറ്റലിന്റെ നിബന്ധനകളും വിവേചനവും പ്രകാരമാണ്. നിബന്ധനകൾ ബാധകം.">
+                Loan approval, interest rates, and eligibility are subject to Tata Capital’s policies and discretion. Terms & conditions apply.
+            </p>
+        </div>
+    </main>
+
+    <nav class="dock">
+        <a href="index.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+            <span data-en="Profile" data-ml="പ്രൊഫൈൽ">Profile</span>
+        </a>
+        <a href="health.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            <span data-en="Health" data-ml="ആരോഗ്യം">Health</span>
+        </a>
+        <a href="life.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <span data-en="Life" data-ml="ലൈഫ്">Life</span>
+        </a>
+        <a href="recruitment.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+            </svg>
+            <span data-en="Career" data-ml="കരിയർ">Career</span>
+        </a>
+        <a href="loans.html" class="dock-item active">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 1C5.92 1 1 4.58 1 9c0 2.64 1.86 4.97 4.72 6.34-.17.63-.63 2.22-.72 2.59-.11.46.16.45.34.33.14-.1 2.24-1.52 3.15-2.14.5.07 1.02.1 1.55.1 6.08 0 11-3.58 11-8s-4.92-8-11-8zm1.05 12.94v.98h-2.1v-.94c-1.08-.15-2.29-.67-2.29-2.21h1.48c0 .78.62 1.17 1.59 1.17.86 0 1.5-.34 1.5-1 0-.5-.38-.79-1.11-.99l-.94-.25c-1.27-.34-2.11-.96-2.11-2.24 0-1.34 1.05-2.04 2.26-2.2v-.94h2.1v.94c1.1.18 2.07.86 2.07 2.13h-1.48c-.02-.66-.48-1.07-1.33-1.07-.78 0-1.35.35-1.35.95 0 .52.42.78 1.07.96l.95.26c1.43.4 2.14 1.08 2.14 2.31-.01 1.44-1.1 2.14-2.41 2.4z" />
+            </svg>
+            <span data-en="Loans" data-ml="ലോൺ">Loans</span>
+        </a>
+    </nav>
+
+    <script>
+        const LANG_KEY = 'pk_lang';
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = currentLang === 'en' ? 'മലയാളം' : 'English';
+            try { localStorage.setItem(LANG_KEY, currentLang); } catch (e) {}
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'en' ? 'ml' : 'en');
+        }
+
+        (function initLanguage() {
+            let saved = null;
+            try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+            applyLanguage(saved === 'ml' ? 'ml' : 'en');
+        })();
+    </script>
+</body>
+
+</html>
+
