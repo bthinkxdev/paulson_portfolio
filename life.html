@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Life Insurance | Paulson K.F.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --primary: #164362;
+            --accent: #ffffff;
+            --card-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --wa-green: #25D366;
+            --safe-area-bottom: env(safe-area-inset-bottom);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            padding-bottom: calc(90px + var(--safe-area-bottom));
+            line-height: 1.6;
+        }
+
+        /* --- Header & Lang Toggle --- */
+        .top-nav {
+            width: 100%;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .page-intro {
+            background: var(--primary);
+            color: white;
+            padding: 40px 24px 60px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .page-intro h1 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .page-intro p {
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            max-width: 680px;
+            margin: -22px auto 0;
+            padding: 0 12px;
+        }
+
+        .company-card {
+            background: var(--card-white);
+            border-radius: 18px;
+            padding: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .logo-box {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2a3a5a 100%);
+            color: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 17px;
+            flex-shrink: 0;
+            box-shadow: 0 7px 12px rgba(15, 23, 42, 0.1);
+        }
+
+        .company-name-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .trust-badge {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Plan Grid --- */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .plan-card {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .plan-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .plan-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* --- Buttons --- */
+        .btn-wa {
+            background: var(--wa-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 12.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 7px 16px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-wa:active {
+            transform: scale(0.97);
+        }
+
+        /* --- Feature Bullets --- */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin: 6px 0 4px;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 12px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .feature-ico {
+            width: 15px;
+            height: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #1e7acb, #164362);
+            color: #fff;
+            border-radius: 11px;
+            padding: 9px 11px;
+            font-size: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 7px 16px rgba(15, 23, 42, 0.12);
+        }
+
+        /* --- Insurer Tabs --- */
+        .ins-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 2px 6px;
+            margin: 20px 0 12px;
+            scrollbar-width: thin;
+        }
+
+        .ins-chip {
+            flex: 0 0 auto;
+            padding: 10px 14px;
+            background: #e2e8f0;
+            color: #0f172a;
+            border-radius: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+        }
+
+        .ins-chip.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+        }
+
+        .ins-card.active {
+            border: 1px solid rgba(22, 67, 98, 0.2);
+        }
+
+        .wa-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* --- Bottom Dock Navigation --- */
+        .dock {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            height: 70px;
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 2000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .dock-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .dock-item.active {
+            color: var(--accent);
+        }
+
+        .dock-item svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* --- Desktop Adaptability --- */
+        @media (min-width: 768px) {
+            .plan-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dock {
+                width: 450px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .page-intro {
+                border-radius: 0;
+                padding: 80px 0;
+            }
+
+            .main-content {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="nav-brand">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" class="nav-logo">
+                <rect width="36" height="36" rx="10" fill="var(--primary)" />
+                <path d="M18 9L11 25H15L16.5 21H19.5L21 25H25L18 9ZM17.2 18L18 15.5L18.8 18H17.2Z" fill="white" />
+            </svg>
+            <div class="brand-info">
+                <span class="brand-name">Anna Marketing</span>
+                <span class="brand-sub">& Consultancy</span>
+            </div>
+        </div>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">മലയാളം</button>
+    </header>
+
+    <div class="page-intro">
+        <h1 data-en="Life Protection" data-ml="ലൈഫ് ഇൻഷുറൻസ്">Life Protection</h1>
+        <p data-en="Secure your family's legacy with India's most trusted plans"
+            data-ml="കുടുംബത്തിന്റെ ഭാവി സുരക്ഷിതമാക്കാൻ മികച്ച പ്ലാനുകൾ">Secure your family's legacy with India's most
+            trusted plans</p>
+    </div>
+
+    <main class="main-content">
+
+        <div class="ins-scroll" id="lifeTabs">
+            <button class="ins-chip active" data-target="life-lic">LIC</button>
+            <button class="ins-chip" data-target="life-hdfc">HDFC Life</button>
+            <button class="ins-chip" data-target="life-icici">ICICI Prudential</button>
+        </div>
+
+        <div id="lifeCards">
+        <div class="company-card ins-card active" id="life-lic">
+            <div class="company-header">
+                <div class="logo-box">LI</div>
+                <div>
+                    <h2 class="company-name-title">LIC of India</h2>
+                    <div class="trust-badge" data-en="Government Backed" data-ml="സർക്കാർ ഇൻഷുറൻസ്">Government Backed
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Endowment Plans" data-ml="എൻഡോവ്‌മെന്റ് പ്ലാനുകൾ">Endowment Plans
+                    </div>
+                    <p class="plan-desc" data-en="Guaranteed maturity returns with life cover & tax benefits."
+                        data-ml="മെച്യൂരിറ്റി ആനുകൂല്യങ്ങളും നികുതി ഇളവുകളും.">Guaranteed maturity returns with life
+                        cover & tax benefits.</p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Child Education" data-ml="ചൈൽഡ് പ്ലാനുകൾ">Child Education</div>
+                    <p class="plan-desc" data-en="Secure their higher studies even in your absence."
+                        data-ml="മക്കളുടെ ഉപരിപഠനം സുരക്ഷിതമാക്കാം.">Secure their higher studies even in your absence.
+                    </p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Pension Plans" data-ml="പെൻഷൻ പ്ലാനുകൾ">Pension Plans</div>
+                    <p class="plan-desc" data-en="Lifelong monthly income for a peaceful retirement."
+                        data-ml="വിശ്രമകാലത്ത് ഉറപ്പായ പ്രതിമാസ വരുമാനം.">Lifelong monthly income for a peaceful
+                        retirement.</p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Money Back" data-ml="മണി ബാക്ക്">Money Back</div>
+                    <p class="plan-desc" data-en="Regular payouts during the policy term."
+                        data-ml="നിശ്ചിത ഇടവേളകളിൽ പണം തിരികെ ലഭിക്കുന്നു.">Regular payouts during the policy term.</p>
+                </div>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-row"><span class="feature-ico">🧭</span><span data-en="Who should buy: One-time premium investors seeking savings + protection." data-ml="ആർക്ക് വാങ്ങാം: ഒരുതവണ പ്രീമിയം നൽകി സമ്പാദ്യവും സുരക്ഷയും ആഗ്രഹിക്കുന്നവർ.">Who should buy: One-time premium investors seeking savings + protection.</span></div>
+                <div class="feature-row"><span class="feature-ico">⭐</span><span data-en="Key features: Single premium, guaranteed maturity, bonus eligibility." data-ml="പ്രധാന സവിശേഷതകൾ: സിംഗിൾ പ്രീമിയം, ഉറപ്പുള്ള മെച്യൂരിറ്റി, ബോണസ് അർഹത.">Key features: Single premium, guaranteed maturity, bonus eligibility.</span></div>
+                <div class="feature-row"><span class="feature-ico">📈</span><span data-en="Benefits explained: Lump sum at maturity + life cover throughout term." data-ml="ആനുകൂല്യങ്ങൾ: മെച്യൂരിറ്റിയിൽ ലംപ്‌സം + കാലാവധിയിലുടനീളം ലൈഫ് കവർ.">Benefits explained: Lump sum at maturity + life cover throughout term.</span></div>
+                <div class="feature-row"><span class="feature-ico">🛡️</span><span data-en="Eligibility & coverage: Age 90 days to 65 years (policy specific)." data-ml="യോഗ്യത & കവർ: 90 ദിവസം മുതൽ 65 വയസ് വരെ (പോളിസി അനുസരിച്ച്).">Eligibility & coverage: Age 90 days to 65 years (policy specific).</span></div>
+                <div class="feature-row"><span class="feature-ico">📝</span><span data-en="Claim process: Submit maturity/death documents via Paulson K.F." data-ml="ക്ലെയിം പ്രക്രിയ: മെച്യൂരിറ്റി/മരണം രേഖകൾ പോൾസൺ കെ.എഫ് മുഖേന സമർപ്പിക്കുക.">Claim process: Submit maturity/death documents via Paulson K.F.</span></div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="feature-ico" style="color:#ffd166;">⭐</span>
+                <div>
+                    <div style="font-weight:700; font-size:13px;" data-en="Why buy from Paulson K.F?" data-ml="എന്തുകൊണ്ട് പോൾസൺ കെ.എഫിൽ നിന്ന്?">Why buy from Paulson K.F?</div>
+                    <div style="opacity:0.95;" data-en="Instant claim assistance, policy status updates, doorstep document collection, 24/7 consultation." data-ml="ഉടൻ ക്ലെയിം സഹായം, പോളിസി അപ്‌ഡേറ്റുകൾ, വീട്ടിൽ നിന്ന് രേഖ ശേഖരം, 24/7 കൺസൾട്ടേഷൻ.">Instant claim assistance, policy status updates, doorstep document collection, 24/7 consultation.</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/919744802450?text=I want to know about LIC Plans" class="btn-wa">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Consult on WhatsApp" data-ml="വാട്ട്‌സ്ആപ്പിൽ ചോദിക്കാം">Consult on
+                    WhatsApp</span>
+            </a>
+        </div>
+
+        <div class="company-card ins-card" id="life-hdfc">
+            <div class="company-header">
+                <div class="logo-box">HD</div>
+                <div>
+                    <h2 class="company-name-title">HDFC Life</h2>
+                    <div class="trust-badge" data-en="Premium Private Sector" data-ml="പ്രീമിയം പ്രൈവറ്റ് സെക്ടർ">
+                        Premium Private Sector</div>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Term Insurance" data-ml="ടേം ഇൻഷുറൻസ്">Term Insurance</div>
+                    <p class="plan-desc" data-en="High cover (Up to 10Cr) at very low premiums."
+                        data-ml="കുറഞ്ഞ പ്രീമിയത്തിൽ വലിയ സാമ്പത്തിക സുരക്ഷ.">High cover (Up to 10Cr) at very low
+                        premiums.</p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-title" data-en="ULIP / Investment" data-ml="നിക്ഷേപ പദ്ധതികൾ">ULIP / Investment
+                    </div>
+                    <p class="plan-desc" data-en="Wealth creation linked to market growth."
+                        data-ml="ഓഹരി വിപണിയുമായി ബന്ധപ്പെട്ട ലാഭകരമായ നിക്ഷേപം.">Wealth creation linked to market
+                        growth.</p>
+                </div>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-row"><span class="feature-ico">🧭</span><span data-en="Who should buy: Protect family with high cover at low cost." data-ml="ആർക്ക് വാങ്ങാം: കുറഞ്ഞ ചെലവിൽ ഉയർന്ന കവർ ആവശ്യമുള്ളവർ.">Who should buy: Protect family with high cover at low cost.</span></div>
+                <div class="feature-row"><span class="feature-ico">⭐</span><span data-en="Key features: Strong private-sector brand with digital servicing." data-ml="പ്രധാന സവിശേഷതകൾ: ശക്തമായ പ്രൈവറ്റ് ബ്രാൻഡ്, ഡിജിറ്റൽ സേവനങ്ങൾ.">Key features: Strong private-sector brand with digital servicing.</span></div>
+                <div class="feature-row"><span class="feature-ico">📈</span><span data-en="Benefits explained: Term protection + investment/ULIP options." data-ml="ആനുകൂല്യങ്ങൾ: ടേം പ്രൊട്ടക്ഷൻ + ഇൻവെസ്റ്റ്‌മെന്റ്/യൂഎൽഐപി ഓപ്ഷനുകൾ.">Benefits explained: Term protection + investment/ULIP options.</span></div>
+                <div class="feature-row"><span class="feature-ico">🛡️</span><span data-en="Eligibility & coverage: Broad age bands; flexible cover amounts." data-ml="യോഗ്യത & കവർ: വ്യാപക പ്രായ പരിധികൾ, ഫ്ലെക്സിബിൾ കവർ തുക.">Eligibility & coverage: Broad age bands; flexible cover amounts.</span></div>
+                <div class="feature-row"><span class="feature-ico">📝</span><span data-en="Claim process: Paulson K.F. guides documentation end-to-end." data-ml="ക്ലെയിം പ്രക്രിയ: രേഖകൾ മുതൽ തീർപ്പുവരെയുമായി പോൾസൺ കെ.എഫ് മാർഗനിർദ്ദേശം.">Claim process: Paulson K.F. guides documentation end-to-end.</span></div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="feature-ico" style="color:#ffd166;">⭐</span>
+                <div>
+                    <div style="font-weight:700; font-size:13px;" data-en="Why buy from Paulson K.F?" data-ml="എന്തുകൊണ്ട് പോൾസൺ കെ.എഫിൽ നിന്ന്?">Why buy from Paulson K.F?</div>
+                    <div style="opacity:0.95;" data-en="Instant claim assistance, policy updates, doorstep document collection, 24/7 consultation." data-ml="ഉടൻ ക്ലെയിം സഹായം, പോളിസി അപ്‌ഡേറ്റുകൾ, വീട്ടിൽ നിന്ന് രേഖ ശേഖരം, 24/7 കൺസൾട്ടേഷൻ.">Instant claim assistance, policy updates, doorstep document collection, 24/7 consultation.</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/919744802450?text=I want to know about HDFC Life Plans" class="btn-wa">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Consult on WhatsApp" data-ml="വാട്ട്‌സ്ആപ്പിൽ ചോദിക്കാം">Consult on
+                    WhatsApp</span>
+            </a>
+        </div>
+
+        <div class="company-card ins-card" id="life-icici">
+            <div class="company-header">
+                <div class="logo-box">IP</div>
+                <div>
+                    <h2 class="company-name-title">ICICI Prudential</h2>
+                    <div class="trust-badge" data-en="Customer Friendly" data-ml="ഉപഭോക്തൃ സൗഹൃദം">Customer Friendly
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Guaranteed Income" data-ml="ഉറപ്പായ വരുമാനം">Guaranteed Income
+                    </div>
+                    <p class="plan-desc" data-en="Tax-free guaranteed returns for a secure future."
+                        data-ml="നികുതി രഹിതവും ഉറപ്പായതുമായ വരുമാനം.">Tax-free guaranteed returns for a secure future.
+                    </p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-title" data-en="Gift LiFT" data-ml="ഗിഫ്റ്റ് ലിഫ്റ്റ്">Gift LiFT</div>
+                    <p class="plan-desc" data-en="Long-term income + lump sum benefit."
+                        data-ml="ദീർഘകാല വരുമാനവും ലംപ്‌സം ആനുകൂല്യവും.">Long-term income + lump sum benefit.</p>
+                </div>
+            </div>
+
+            <div class="feature-list">
+                <div class="feature-row"><span class="feature-ico">🧭</span><span data-en="Who should buy: Families wanting steady, guaranteed payouts." data-ml="ആർക്ക് വാങ്ങാം: സ്ഥിരമായ ഉറപ്പുള്ള പേയൗട്ടുകൾ ആഗ്രഹിക്കുന്ന കുടുംബങ്ങൾ.">Who should buy: Families wanting steady, guaranteed payouts.</span></div>
+                <div class="feature-row"><span class="feature-ico">⭐</span><span data-en="Key features: Guaranteed income and lump-sum variants." data-ml="പ്രധാന സവിശേഷതകൾ: ഉറപ്പുള്ള വരുമാനം, ലംപ്‌സം ഓപ്ഷനുകൾ.">Key features: Guaranteed income and lump-sum variants.</span></div>
+                <div class="feature-row"><span class="feature-ico">📈</span><span data-en="Benefits explained: Tax-efficient, predictable returns with life cover." data-ml="ആനുകൂല്യങ്ങൾ: നികുതി കാര്യക്ഷമവും പ്രവചിക്കാവുന്ന വരുമാനവും ലൈഫ് കവർ കൂടി.">Benefits explained: Tax-efficient, predictable returns with life cover.</span></div>
+                <div class="feature-row"><span class="feature-ico">🛡️</span><span data-en="Eligibility & coverage: Wide age eligibility; tailored sum assured." data-ml="യോഗ്യത & കവർ: വിപുലമായ പ്രായ പരിധി; ആവശ്യത്തിന് കവർ തുക.">Eligibility & coverage: Wide age eligibility; tailored sum assured.</span></div>
+                <div class="feature-row"><span class="feature-ico">📝</span><span data-en="Claim process: Documentation and settlement guided by Paulson K.F." data-ml="ക്ലെയിം പ്രക്രിയ: രേഖകളും തീർപ്പും പോൾസൺ കെ.എഫ് മാർഗനിർദ്ദേശത്തോടെ.">Claim process: Documentation and settlement guided by Paulson K.F.</span></div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="feature-ico" style="color:#ffd166;">⭐</span>
+                <div>
+                    <div style="font-weight:700; font-size:13px;" data-en="Why buy from Paulson K.F?" data-ml="എന്തുകൊണ്ട് പോൾസൺ കെ.എഫിൽ നിന്ന്?">Why buy from Paulson K.F?</div>
+                    <div style="opacity:0.95;" data-en="Instant claim assistance, policy updates, doorstep document collection, 24/7 consultation." data-ml="ഉടൻ ക്ലെയിം സഹായം, പോളിസി അപ്‌ഡേറ്റുകൾ, വീട്ടിൽ നിന്ന് രേഖ ശേഖരം, 24/7 കൺസൾട്ടേഷൻ.">Instant claim assistance, policy updates, doorstep document collection, 24/7 consultation.</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/919744802450?text=I want to know about ICICI Prudential Plans" class="btn-wa">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Consult on WhatsApp" data-ml="വാട്ട്‌സ്ആപ്പിൽ ചോദിക്കാം">Consult on
+                    WhatsApp</span>
+            </a>
+        </div>
+        </div>
+
+    </main>
+
+    <nav class="dock">
+        <a href="index.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+            <span data-en="Profile" data-ml="പ്രൊഫൈൽ">Profile</span>
+        </a>
+        <a href="health.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            <span data-en="Health" data-ml="ആരോഗ്യം">Health</span>
+        </a>
+        <a href="life.html" class="dock-item active">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <span data-en="Life" data-ml="ലൈഫ്">Life</span>
+        </a>
+        <a href="recruitment.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+            </svg>
+            <span data-en="Career" data-ml="കരിയർ">Career</span>
+        </a>
+    </nav>
+
+    <script>
+        const LANG_KEY = 'pk_lang';
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = currentLang === 'en' ? 'മലയാളം' : 'English';
+            try { localStorage.setItem(LANG_KEY, currentLang); } catch (e) {}
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'en' ? 'ml' : 'en');
+        }
+
+        function initInsTabs(tabsId, cardSelector, containerId) {
+            const tabs = document.getElementById(tabsId);
+            const container = containerId ? document.getElementById(containerId) : null;
+            if (!tabs) return;
+            const chips = Array.from(tabs.querySelectorAll('.ins-chip'));
+            const cards = Array.from(document.querySelectorAll(cardSelector));
+            const activate = (id) => {
+                chips.forEach(c => c.classList.toggle('active', c.dataset.target === id));
+                cards.forEach(c => c.classList.toggle('active', c.id === id));
+                const target = document.getElementById(id);
+                if (target && container) {
+                    container.prepend(target);
+                }
+            };
+            chips.forEach(chip => chip.addEventListener('click', () => activate(chip.dataset.target)));
+            const first = chips[0];
+            if (first) activate(first.dataset.target);
+        }
+
+        (function initLanguage() {
+            let saved = null;
+            try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+            applyLanguage(saved === 'ml' ? 'ml' : 'en');
+        })();
+
+        initInsTabs('lifeTabs', '.ins-card', 'lifeCards');
+    </script>
+</body>
+
+</html>

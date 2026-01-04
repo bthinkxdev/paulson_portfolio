@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Careers | Paulson K.F.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --primary: #164362;
+            --accent: #ffffff;
+            --card-white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --wa-green: #25D366;
+            --safe-area-bottom: env(safe-area-inset-bottom);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            padding-bottom: calc(90px + var(--safe-area-bottom));
+            line-height: 1.6;
+        }
+
+        /* --- Header & Lang Toggle --- */
+        .top-nav {
+            width: 100%;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        /* --- Hero Section --- */
+        .hero-recruitment {
+            background: var(--primary);
+            color: white;
+            padding: 40px 24px 60px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .hero-recruitment h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero-recruitment p {
+            font-size: 14px;
+            opacity: 0.85;
+            max-width: 320px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* --- Benefit Grid --- */
+        .main-container {
+            max-width: 700px;
+            margin: -30px auto 0;
+            padding: 0 16px;
+        }
+
+        .benefit-scroller {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 4px 25px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .benefit-scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .benefit-item {
+            flex: 0 0 140px;
+            background: var(--card-white);
+            padding: 20px 15px;
+            border-radius: 20px;
+            text-align: center;
+            scroll-snap-align: start;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .benefit-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        /* --- Company Cards --- */
+        .job-card {
+            background: var(--card-white);
+            border-radius: 28px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 15px;
+        }
+
+        .job-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .info-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .company-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .job-details {
+            margin-bottom: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .detail-icon {
+            color: var(--wa-green);
+            font-weight: bold;
+        }
+
+        .detail-text {
+            font-size: 13px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .detail-label {
+            font-size: 11px;
+            color: var(--text-light);
+            display: block;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .btn-apply {
+            background: var(--wa-green);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .wa-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* --- Dock --- */
+        .dock {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            height: 70px;
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 2000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dock-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .dock-item.active {
+            color: var(--accent);
+        }
+
+        .dock-item svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        @media (min-width: 768px) {
+            .dock {
+                width: 450px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .benefit-scroller {
+                justify-content: center;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="nav-brand">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" class="nav-logo">
+                <rect width="36" height="36" rx="10" fill="var(--primary)" />
+                <path d="M18 9L11 25H15L16.5 21H19.5L21 25H25L18 9ZM17.2 18L18 15.5L18.8 18H17.2Z" fill="white" />
+            </svg>
+            <div class="brand-info">
+                <span class="brand-name">Anna Marketing</span>
+                <span class="brand-sub">& Consultancy</span>
+            </div>
+        </div>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">മലയാളം</button>
+    </header>
+
+    <div class="hero-recruitment">
+        <h1 data-en="Start Your Career" data-ml="ഒരു കരിയർ തുടങ്ങാം">Start Your Career</h1>
+        <p data-en="Ideal for Retired Professionals, Housewives, and Youth. Earn respect and unlimited income."
+            data-ml="വിരമിച്ചവർക്കും വീട്ടമ്മമാർക്കും അനുയോജ്യം. ബഹുമാനവും വരുമാനവും നേടാം.">Ideal for Retired
+            Professionals, Housewives, and Youth. Earn respect and unlimited income.</p>
+    </div>
+
+    <main class="main-container">
+        <div class="benefit-scroller">
+            <div class="benefit-item">
+                <span class="benefit-icon">⏰</span>
+                <span class="benefit-label" data-en="Flexible" data-ml="ഫ്ലെക്സിബിൾ">Flexible</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💰</span>
+                <span class="benefit-label" data-en="High Pay" data-ml="ഉയർന്ന ശമ്പളം">High Pay</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🎓</span>
+                <span class="benefit-label" data-en="Mentorship" data-ml="കൂടെയുണ്ടാകും">Mentorship</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🏆</span>
+                <span class="benefit-label" data-en="Growth" data-ml="വളർച്ച">Growth</span>
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-logo">TA</div>
+                <div>
+                    <span class="info-tag" data-en="Health Insurance" data-ml="ഹെൽത്ത് ഇൻഷുറൻസ്">Health Insurance</span>
+                    <h2 class="company-title">TATA AIG</h2>
+                </div>
+            </div>
+            <div class="job-details">
+                <div class="detail-row">
+                    <span class="detail-icon">✓</span>
+                    <div>
+                        <span class="detail-label" data-en="Eligibility" data-ml="യോഗ്യത">Eligibility</span>
+                        <span class="detail-text" data-en="Age 18+, Min 12th Pass"
+                            data-ml="18 വയസ്സ്, 12-ാം ക്ലാസ് വിജയം">Age 18+, Min 12th Pass</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">✓</span>
+                    <div>
+                        <span class="detail-label" data-en="Income Potential" data-ml="വരുമാന സാധ്യത">Income
+                            Potential</span>
+                        <span class="detail-text" data-en="₹15,000 - ₹50,000+ / Month"
+                            data-ml="പ്രതിമാസം ₹15,000 - ₹50,000+">₹15,000 - ₹50,000+ / Month</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/919744802450?text=Interested in TATA AIG Career" class="btn-apply">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Apply on WhatsApp" data-ml="WhatsApp വഴി അപേക്ഷിക്കാം">Apply on WhatsApp</span>
+            </a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-logo">AB</div>
+                <div>
+                    <span class="info-tag" data-en="Wellness Partner" data-ml="വെൽനസ് പാർട്ണർ">Wellness Partner</span>
+                    <h2 class="company-title">Aditya Birla</h2>
+                </div>
+            </div>
+            <div class="job-details">
+                <div class="detail-row">
+                    <span class="detail-icon">✓</span>
+                    <div>
+                        <span class="detail-label" data-en="Benefit" data-ml="ഗുണം">Benefit</span>
+                        <span class="detail-text" data-en="Digital tools & training provided"
+                            data-ml="ഡിജിറ്റൽ ടൂളുകളും പരിശീലനവും">Digital tools & training provided</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/919744802450?text=Interested in Aditya Birla Career" class="btn-apply">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Apply on WhatsApp" data-ml="WhatsApp വഴി അപേക്ഷിക്കാം">Apply on WhatsApp</span>
+            </a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-logo">NB</div>
+                <div>
+                    <span class="info-tag" data-en="Modern" data-ml="മോഡേൺ">Modern</span>
+                    <h2 class="company-title">Niva Bupa</h2>
+                </div>
+            </div>
+            <div class="job-details">
+                <div class="detail-row">
+                    <span class="detail-icon">✓</span>
+                    <div>
+                        <span class="detail-label" data-en="Opportunity" data-ml="അവസരം">Opportunity</span>
+                        <span class="detail-text" data-en="Fast growing network & sales support"
+                            data-ml="മികച്ച പിന്തുണ">Fast growing network & sales support</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/919744802450?text=Interested in Niva Bupa Career" class="btn-apply">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Apply on WhatsApp" data-ml="WhatsApp വഴി അപേക്ഷിക്കാം">Apply on WhatsApp</span>
+            </a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-logo">MC</div>
+                <div>
+                    <span class="info-tag" data-en="Global" data-ml="ആഗോള">Global</span>
+                    <h2 class="company-title">Manipal Cigna</h2>
+                </div>
+            </div>
+            <div class="job-details">
+                <div class="detail-row">
+                    <span class="detail-icon">✓</span>
+                    <div>
+                        <span class="detail-label" data-en="Scope" data-ml="സാധ്യത">Scope</span>
+                        <span class="detail-text" data-en="Work with a global health leader"
+                            data-ml="ആഗോള സ്ഥാപനത്തോടൊപ്പം പ്രവർത്തിക്കാം">Work with a global health leader</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/919744802450?text=Interested in Manipal Cigna Career" class="btn-apply">
+                <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.57 0 .29 5.23.29 11.66c0 2.05.54 4.04 1.57 5.8L0 24l6.68-1.73a11.92 11.92 0 0 0 5.36 1.31h.01c6.48 0 11.76-5.24 11.76-11.67 0-3.12-1.23-6.05-3.29-8.43zM12.05 21.6h-.01a9.8 9.8 0 0 1-4.99-1.36l-.36-.21-3.96 1.03 1.06-3.86-.25-.4a9.92 9.92 0 0 1-1.5-5.39c0-5.48 4.49-9.93 10-9.93 2.66 0 5.16 1.04 7.04 2.93a9.88 9.88 0 0 1 2.9 7.05c0 5.48-4.49 9.93-9.93 9.93zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.46-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.68-1.64-.93-2.25-.25-.6-.5-.52-.68-.53-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.45 1.07 2.86 1.22 3.06.15.2 2.1 3.23 5.08 4.53.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.3.18-1.41-.07-.11-.27-.18-.57-.33z" />
+                </svg>
+                <span data-en="Apply on WhatsApp" data-ml="WhatsApp വഴി അപേക്ഷിക്കാം">Apply on WhatsApp</span>
+            </a>
+        </div>
+    </main>
+
+    <nav class="dock">
+        <a href="index.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>
+            <span data-en="Profile" data-ml="പ്രൊഫൈൽ">Profile</span>
+        </a>
+        <a href="health.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+            </svg>
+            <span data-en="Health" data-ml="ആരോഗ്യം">Health</span>
+        </a>
+        <a href="life.html" class="dock-item">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <span data-en="Life" data-ml="ലൈഫ്">Life</span>
+        </a>
+        <a href="recruitment.html" class="dock-item active">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+            </svg>
+            <span data-en="Career" data-ml="കരിയർ">Career</span>
+        </a>
+    </nav>
+
+    <script>
+        const LANG_KEY = 'pk_lang';
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            const btn = document.getElementById('langBtn');
+            if (btn) btn.textContent = currentLang === 'en' ? 'മലയാളം' : 'English';
+            try { localStorage.setItem(LANG_KEY, currentLang); } catch (e) {}
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'en' ? 'ml' : 'en');
+        }
+
+        (function initLanguage() {
+            let saved = null;
+            try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
+            applyLanguage(saved === 'ml' ? 'ml' : 'en');
+        })();
+    </script>
+</body>
+
+</html>
